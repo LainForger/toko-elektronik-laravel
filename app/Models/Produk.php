@@ -6,11 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produk extends Model
 {
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'kode_produk',
+        'nama_produk',
+        'kategori_id',
+        'harga',
+        'stok',
+    ];
 
-    // Fungsi ini yang dicari oleh Controller tadi
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
+    }
+
+    public function transaksiItems()
+    {
+        return $this->hasMany(TransaksiItem::class);
     }
 }

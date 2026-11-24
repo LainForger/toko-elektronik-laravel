@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pelanggan extends Model
 {
-    protected $guarded = ['id'];
+    protected $fillable = ['nama_pelanggan', 'no_hp', 'alamat'];
 
     public function transaksis()
     {

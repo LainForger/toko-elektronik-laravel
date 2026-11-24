@@ -6,11 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'no_nota',
+        'pelanggan_id',
+        'total_harga',
+        'bayar',
+        'kembalian',
+    ];
 
-    public function produk()
+    public function items()
     {
-        return $this->belongsTo(Produk::class);
+        return $this->hasMany(TransaksiItem::class);
     }
 
     public function pelanggan()
